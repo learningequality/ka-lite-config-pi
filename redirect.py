@@ -4,17 +4,16 @@
 
 import BaseHTTPServer
 
-DESTINATION_URL = "http://1.1.1.1:8008/"
-
 class RedirectHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
-    def do_HEAD(s):
-        s.send_response(302)
-        s.send_header("Location", DESTINATION_URL)
-        s.end_headers()
+    def do_HEAD(self):
+        host = self.headers.get("host", "1.1.1.1").split(":")[0]
+        self.send_response(302)
+        self.send_header("Location", "http://%s:8008/" % host)
+        self.end_headers()
 
-    def do_GET(s):
-        s.do_HEAD()
+    def do_GET(self):
+        self.do_HEAD()
 
 if __name__ == '__main__':
     httpd = BaseHTTPServer.HTTPServer(("", 80), RedirectHandler)
