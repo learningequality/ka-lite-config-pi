@@ -1,6 +1,6 @@
 # This will listen on port 80 and redirect any HTTP requests to KA Lite.
 # Run this in the background using:
-# sudo python redirect.py &
+# sudo python redirect_port80_to_port8008.py &
 
 import BaseHTTPServer
 
