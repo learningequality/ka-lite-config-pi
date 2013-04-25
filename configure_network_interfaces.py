@@ -26,7 +26,7 @@ wlan0_lines = [
     "  address 1.1.1.1",
     "  netmask 255.255.255.0",
     "  pre-up sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp -j DNAT --to-destination 1.1.1.1",
-    "  pre-up sudo python redirect_port80_to_port8008.py &",
+    "  pre-up sudo python %s/redirect_port80_to_port8008.py &" % os.path.dirname(os.path.realpath(__file__)),
 ]
 
 editing_wlan0 = False
