@@ -11,13 +11,13 @@ sudo ifconfig wlan0 1.1.1.1
 sudo python configure_network_interfaces.py
 
 # copy in our hostapd configuration file
-sudo cp hostapd.conf /etc/hostapd/hostapd.conf
+sudo cp conf/hostapd.conf /etc/hostapd/hostapd.conf
 
 # copy in our hostapd init script
-sudo cp hostapd /etc/default/hostapd
+sudo cp conf/hostapd /etc/default/hostapd
 
 # copy in our dnsmasq configuration file
-sudo cp dnsmasq.conf /etc/dnsmasq.conf
+sudo cp conf/dnsmasq.conf /etc/dnsmasq.conf
 
 # start the hostapd and dnsmasq services
 sudo service hostapd start
