@@ -9,7 +9,7 @@ fi
 
 # use the binary hostapd for the Edimax EW-7811Un
 sudo rm /usr/sbin/hostapd 2> /dev/null
-sudo ln -s conf/hostapd_RTL8188CUS /usr/sbin/hostapd
+sudo ln -s `pwd`/conf/hostapd_RTL8188CUS /usr/sbin/hostapd
 
 # backup the hostapd config file if needed
 if [ ! -f /etc/hostapd/hostapd_original.conf ];
@@ -19,7 +19,7 @@ fi
 
 # use the hostapd config file for the Edimax EW-7811Un
 sudo rm /etc/hostapd/hostapd.conf 2> /dev/null
-sudo ln -s conf/hostapd_RTL8188CUS.conf /etc/hostapd/hostapd.conf
+sudo ln -s `pwd`/conf/hostapd_RTL8188CUS.conf /etc/hostapd/hostapd.conf
 
 # restart hostapd with the new settings
 sudo service hostapd start
