@@ -7,6 +7,7 @@ then
     # use the original binary hostapd, for the Wi-Pi
     sudo rm /usr/sbin/hostapd 2> /dev/null
     sudo ln -s /usr/sbin/hostapd_original /usr/sbin/hostapd
+    sudo chmod +x /usr/sbin/hostapd
 fi
 
 # if we're not already using the original conf, switch
